@@ -7,7 +7,7 @@ def cls():
         _ = system('clear')
 
 def time():
-    choice = str(input("1 for hours to minutes\n2 for minutes to hours\nChoice:"))
+    choice = str(input("1 for hours to minutes\n2 for minutes to hours\nChoice: "))
     x = float(input("Input number: "))
     
     y = 0
