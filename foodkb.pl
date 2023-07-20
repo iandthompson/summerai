@@ -121,3 +121,10 @@ serves(Kind, Dish) :-
 dietary(Type, Dish) :-
     diet(Type, Dishes),
     member(Dish, Dishes).
+
+where(Name, Location) :-
+    restaurant_location(Name, Location),
+    restaurant_type(Name, Type),
+    serves(Type, Dish),
+    servesALL(Kind, Dishes),
+    member(Dish, Dishes).
