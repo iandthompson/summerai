@@ -4,7 +4,9 @@ Query: restaurant_location(X, wayland).
 2. Which restaurants have italian cuisine?
 Query: restaurant_type(X, italian_restaurant).
 3. Which kind of restaurants serve snapper?
+Query: serves(X, snapper).
 4. Which kinds of restaurants serves rice ?
+Query: serves(x, rice).
 5. Where can you get served a vegetarian dish in fox_point?
 Harder (Optional)
 6. Which restaurants serve both vegetarian and meat dishes?
@@ -101,7 +103,10 @@ restaurant_type(shake_shack, burger_place_restaurant).
 restaurant_type(al_forno, italian_restaurant).
 restaurant_type(lims, thai_restaurant).
 
-
+diet(vegetarian,[beans, bagan_bharta, enchiladas, falafel, hummus,pizza, salad, soup, tempura, onion_rings, naan, papadam, bread, rice, noodles, pita, garlic_bread, pasta, fries]).
+diet(meat,[burgers, enchiladas, gyros, pad_thai, pizza, steak, sandwiches, fried_chicken, tacos, tandoori, larb]).
+diet(seafood,[snapper, cioppino, sashimi, shrimp, clams, fish_tacos, tempura]).
+diet(starch,[naan, papadam, bread, rice, noodles, pita, garlic_bread, pasta, fries]).
 
 /*
 location(Name, Location):-
@@ -111,4 +116,8 @@ location(Name, Location):-
 
 serves(Kind, Dish) :-
     servesALL(Kind, Dishes),
+    member(Dish, Dishes).
+
+dietary(Type, Dish) :-
+    diet(Type, Dishes),
     member(Dish, Dishes).
